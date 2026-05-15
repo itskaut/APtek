@@ -1,0 +1,347 @@
+/* ══════════════════════════════════════════════
+   PHARMAOS — auth-modal.css
+   Блок: auth-modal (всплывающее окно авторизации)
+══════════════════════════════════════════════ */
+
+/* ── Оверлей ─────────────────────────────── */
+.auth-modal__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+/* ── Блок: auth-modal ────────────────────── */
+.auth-modal {
+  background: var(--white);
+  border-radius: 28px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--border);
+  animation: slideUp 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Элемент: шапка модала ───────────────── */
+.auth-modal__head {
+  padding: 32px 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.auth-modal__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.auth-modal__brand-mark {
+  font-size: 1.4rem;
+  color: var(--green);
+  font-weight: 900;
+}
+
+.auth-modal__brand-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+}
+
+.auth-modal__title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.auth-modal__subtitle {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin-bottom: 28px;
+}
+
+/* ── Элемент: переключатель вкладок ──────── */
+.auth-modal__tabs {
+  display: flex;
+  width: 100%;
+  background: var(--bg);
+  border-radius: 14px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.auth-modal__tab {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 9px;
+  border-radius: 11px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--gray);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.auth-modal__tab--active {
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Элемент: тело формы ─────────────────── */
+.auth-modal__body {
+  padding: 24px 32px 32px;
+}
+
+/* ── Блок: auth-form ─────────────────────── */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Элемент: группа полей ───────────────── */
+.auth-form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.auth-form__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gray);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.auth-form__input {
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--bg);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.auth-form__input:focus {
+  border-color: var(--green);
+  background: var(--white);
+}
+
+.auth-form__input--error {
+  border-color: var(--red);
+}
+
+/* ── Элемент: поле с иконкой (пароль) ───── */
+.auth-form__input-wrap {
+  position: relative;
+}
+
+.auth-form__input-wrap .auth-form__input {
+  padding-right: 44px;
+  width: 100%;
+}
+
+.auth-form__eye-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gray-light);
+  font-size: 1rem;
+  padding: 4px;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.auth-form__eye-btn:hover { color: var(--gray); }
+
+/* ── Элемент: сообщение об ошибке ────────── */
+.auth-form__error {
+  font-size: 0.78rem;
+  color: var(--red);
+  font-weight: 600;
+  margin-top: -6px;
+}
+
+/* ── Элемент: забыли пароль ──────────────── */
+.auth-form__forgot {
+  text-align: right;
+  margin-top: -6px;
+}
+
+.auth-form__forgot-link {
+  background: none;
+  border: none;
+  color: var(--green-dark);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.auth-form__forgot-link:hover { opacity: 0.75; }
+
+/* ── Элемент: кнопка отправки ────────────── */
+.auth-form__submit {
+  width: 100%;
+  background: var(--green);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 4px;
+}
+
+.auth-form__submit:hover {
+  background: var(--green-dark);
+  transform: scale(1.01);
+}
+
+.auth-form__submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Элемент: разделитель ────────────────── */
+.auth-form__divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gray-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.auth-form__divider::before,
+.auth-form__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Элемент: вход через соцсети ─────────── */
+.auth-form__socials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.auth-form__social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.auth-form__social-btn:hover {
+  border-color: var(--gray-light);
+  background: var(--bg);
+}
+
+.auth-form__social-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ── Элемент: бонус-баннер (при регистрации) */
+.auth-modal__bonus-hint {
+  background: var(--green-light);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
+.auth-modal__bonus-hint span { font-size: 1.2rem; flex-shrink: 0; }
+
+/* ── Кнопка закрытия ─────────────────────── */
+.auth-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--bg);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  z-index: 1;
+}
+
+.auth-modal__close:hover { background: var(--border); }
+
+/* ── Спиннер внутри кнопки ───────────────── */
+.auth-form__submit-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* ── Адаптив ─────────────────────────────── */
+@media (max-width: 480px) {
+  .auth-modal__head { padding: 24px 24px 0; }
+  .auth-modal__body { padding: 20px 24px 28px; }
+  .auth-form__socials { grid-template-columns: 1fr; }
+}

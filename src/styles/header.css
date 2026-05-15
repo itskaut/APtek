@@ -1,0 +1,184 @@
+/* ══════════════════════════════════════════════
+   PHARMAOS — header.css
+   Блок: header, logo, nav, cart-button
+══════════════════════════════════════════════ */
+
+/* ── Блок: header ────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+  gap: 20px;
+}
+
+/* ── Блок: logo ──────────────────────────── */
+.logo {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo__area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo__mark {
+  font-size: 2rem;
+  color: var(--green);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.logo__text {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--ink);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.logo__sub {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-top: 2px;
+}
+
+/* ── Блок: main-nav ──────────────────────── */
+.main-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.main-nav__link {
+  text-decoration: none;
+  color: var(--gray);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 18px;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.main-nav__link:hover {
+  color: var(--ink);
+  background: var(--border);
+}
+
+.main-nav__link--active {
+  color: var(--green-dark);
+  background: var(--green-light);
+}
+
+/* ── Блок: header-actions ────────────────── */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Блок: cart-button ───────────────────── */
+.cart-button {
+  position: relative;
+  background: var(--ink);
+  color: white;
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.cart-button:hover {
+  background: var(--green);
+  transform: scale(1.05);
+}
+
+.cart-button__icon { line-height: 1; }
+
+.cart-button__badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--green);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg);
+}
+
+/* ── Блок: auth-button ───────────────────── */
+.auth-button {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  color: var(--ink-soft);
+  height: 48px;
+  padding: 0 18px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.2s;
+}
+
+.auth-button:hover {
+  border-color: var(--green);
+  color: var(--green-dark);
+  background: var(--green-light);
+}
+
+.auth-button--logged-in {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+
+.auth-button--logged-in:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: white;
+}
+
+.auth-button__avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--green);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  flex-shrink: 0;
+}
+
+/* ── Адаптив ─────────────────────────────── */
+@media (max-width: 640px) {
+  .header { flex-wrap: wrap; gap: 14px; }
+  .main-nav { order: 3; width: 100%; justify-content: center; }
+}
